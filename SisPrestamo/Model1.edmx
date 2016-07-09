@@ -94,7 +94,7 @@
           <Property Name="Plazo" Type="DateTime" Precision="0" />
           <Property Name="tipo_prestamo" Type="Int32" />
           <NavigationProperty Name="Cliente" Relationship="Self.FK_Prestamos_Clientes" FromRole="Prestamos" ToRole="Clientes" />
-          <NavigationProperty Name="tipo_prestamo1" Relationship="Self.FK_Prestamos_tipo_prestamo" FromRole="Prestamos" ToRole="tipo_prestamo" />
+          <NavigationProperty Name="tipo_prestamo1" Relationship="prestamodbModel.FK_Prestamos_tipo_prestamo" FromRole="Prestamos" ToRole="tipo_prestamo" />
         </EntityType>
         <EntityType Name="tipo_prestamo">
           <Key>
@@ -102,7 +102,7 @@
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="tipo" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-          <NavigationProperty Name="Prestamos" Relationship="Self.FK_Prestamos_tipo_prestamo" FromRole="tipo_prestamo" ToRole="Prestamos" />
+          <NavigationProperty Name="Prestamos" Relationship="prestamodbModel.FK_Prestamos_tipo_prestamo" FromRole="tipo_prestamo" ToRole="Prestamos" />
         </EntityType>
         <Association Name="FK_Prestamos_Clientes">
           <End Role="Clientes" Type="Self.Cliente" Multiplicity="1" />

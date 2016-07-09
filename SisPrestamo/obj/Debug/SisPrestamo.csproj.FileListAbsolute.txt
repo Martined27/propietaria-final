@@ -75,6 +75,5 @@ c:\users\martin ed\documents\visual studio 2013\Projects\SisPrestamo\SisPrestamo
 c:\users\martin ed\documents\visual studio 2013\Projects\SisPrestamo\SisPrestamo\bin\ru\System.Spatial.resources.dll
 c:\users\martin ed\documents\visual studio 2013\Projects\SisPrestamo\SisPrestamo\bin\zh-Hans\System.Spatial.resources.dll
 c:\users\martin ed\documents\visual studio 2013\Projects\SisPrestamo\SisPrestamo\bin\zh-Hant\System.Spatial.resources.dll
-c:\users\martin ed\documents\visual studio 2013\Projects\SisPrestamo\SisPrestamo\obj\Debug\SisPrestamo.csprojResolveAssemblyReference.cache
 c:\users\martin ed\documents\visual studio 2013\Projects\SisPrestamo\SisPrestamo\obj\Debug\SisPrestamo.dll
 c:\users\martin ed\documents\visual studio 2013\Projects\SisPrestamo\SisPrestamo\obj\Debug\SisPrestamo.pdb

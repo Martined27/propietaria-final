@@ -1,0 +1,26 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Calculadora de Prestamos</h2>
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+<fieldset>
+    <div    >
+        Monto del prestamo <input id="Monto" type="text" />
+    </div>
+    <div>
+        Tasa de interes <input id="Tasa" type="text" />
+    </div>
+
+    <div>
+        Duracion del prestamo (en meses) <input id="duracion" type="text" />
+    </div>
+    <div>
+        Fecha de comienzo del prestamo <input id="date" type="text" />
+    </div>
+</fieldset>
+}
+<div><textarea id="Resultado" rows="2" cols="20"></textarea></div>
