@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="prestamodbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Clientes">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="50" />
+    <Property Name="Apellido" Type="varchar" MaxLength="50" />
+    <Property Name="Cedula" Type="nchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="Prestamos">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_cliente" Type="int" Nullable="false" />
+    <Property Name="Importe" Type="int" />
+    <Property Name="Tasa" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="Plazo" Type="smalldatetime" />
+    <Property Name="tipo_prestamo" Type="int" />
+  </EntityType>
+  <EntityType Name="tipo_prestamo">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="tipo" Type="nchar" MaxLength="10" />
+  </EntityType>
+  <Association Name="FK_Prestamos_Clientes">
+    <End Role="Clientes" Type="Self.Clientes" Multiplicity="1" />
+    <End Role="Prestamos" Type="Self.Prestamos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Clientes">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Prestamos">
+        <PropertyRef Name="id_cliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Prestamos_tipo_prestamo">
+    <End Role="tipo_prestamo" Type="Self.tipo_prestamo" Multiplicity="0..1" />
+    <End Role="Prestamos" Type="Self.Prestamos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tipo_prestamo">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Prestamos">
+        <PropertyRef Name="tipo_prestamo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="prestamodbModelStoreContainer">
+    <EntitySet Name="Clientes" EntityType="Self.Clientes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Prestamos" EntityType="Self.Prestamos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tipo_prestamo" EntityType="Self.tipo_prestamo" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Prestamos_Clientes" Association="Self.FK_Prestamos_Clientes">
+      <End Role="Clientes" EntitySet="Clientes" />
+      <End Role="Prestamos" EntitySet="Prestamos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Prestamos_tipo_prestamo" Association="Self.FK_Prestamos_tipo_prestamo">
+      <End Role="tipo_prestamo" EntitySet="tipo_prestamo" />
+      <End Role="Prestamos" EntitySet="Prestamos" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

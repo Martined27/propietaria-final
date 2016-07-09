@@ -1,0 +1,70 @@
+﻿@model SisPrestamo.Prestamo
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Prestamo</legend>
+
+        @Html.HiddenFor(model => model.id)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.id_cliente, "Cliente")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("id_cliente", String.Empty)
+            @Html.ValidationMessageFor(model => model.id_cliente)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Importe)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Importe)
+            @Html.ValidationMessageFor(model => model.Importe)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Tasa)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Tasa)
+            @Html.ValidationMessageFor(model => model.Tasa)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Plazo)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Plazo)
+            @Html.ValidationMessageFor(model => model.Plazo)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.tipo_prestamo, "tipo_prestamo1")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("tipo_prestamo", String.Empty)
+            @Html.ValidationMessageFor(model => model.tipo_prestamo)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

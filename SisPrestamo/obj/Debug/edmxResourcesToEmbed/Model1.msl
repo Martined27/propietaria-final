@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="prestamodbModelStoreContainer" CdmEntityContainer="prestamodbEntities">
+    <EntitySetMapping Name="Clientes">
+      <EntityTypeMapping TypeName="prestamodbModel.Cliente">
+        <MappingFragment StoreEntitySet="Clientes">
+          <ScalarProperty Name="Cedula" ColumnName="Cedula" />
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Apellido" ColumnName="Apellido" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Prestamos">
+      <EntityTypeMapping TypeName="prestamodbModel.Prestamo">
+        <MappingFragment StoreEntitySet="Prestamos">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="id_cliente" ColumnName="id_cliente" />
+          <ScalarProperty Name="Importe" ColumnName="Importe" />
+          <ScalarProperty Name="Tasa" ColumnName="Tasa" />
+          <ScalarProperty Name="Plazo" ColumnName="Plazo" />
+          <ScalarProperty Name="tipo_prestamo" ColumnName="tipo_prestamo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tipo_prestamo">
+      <EntityTypeMapping TypeName="prestamodbModel.tipo_prestamo">
+        <MappingFragment StoreEntitySet="tipo_prestamo">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="tipo" ColumnName="tipo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

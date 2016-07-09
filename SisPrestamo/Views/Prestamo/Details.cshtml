@@ -1,0 +1,50 @@
+﻿@model SisPrestamo.Prestamo
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Prestamo</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Cliente.Nombre)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Cliente.Nombre)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Importe)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Importe)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Tasa)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Tasa)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Plazo)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Plazo)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.tipo_prestamo1.tipo)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.tipo_prestamo1.tipo)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

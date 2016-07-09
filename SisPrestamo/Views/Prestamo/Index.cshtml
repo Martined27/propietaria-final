@@ -1,0 +1,57 @@
+﻿@model IEnumerable<SisPrestamo.Prestamo>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Cliente.Nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Importe)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Tasa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Plazo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tipo_prestamo1.tipo)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cliente.Nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Importe)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tasa)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Plazo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tipo_prestamo1.tipo)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+        </td>
+    </tr>
+}
+
+</table>

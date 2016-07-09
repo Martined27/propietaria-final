@@ -1,0 +1,36 @@
+﻿@model SisPrestamo.Cliente
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Cliente</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Nombre)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Nombre)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Apellido)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Apellido)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Cedula)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Cedula)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
