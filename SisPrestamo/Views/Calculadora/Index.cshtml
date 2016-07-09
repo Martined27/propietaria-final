@@ -3,24 +3,65 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Calculadora de Prestamos</h2>
-@using (Html.BeginForm()) {
-    @Html.AntiForgeryToken()
-    @Html.ValidationSummary(true)
+<h2>Calculadora de Préstamos</h2>
+
 <fieldset>
     <div    >
-        Monto del prestamo <input id="Monto" type="text" />
+        Monto del préstamo <input id="Monto" type="number" />
     </div>
     <div>
-        Tasa de interes <input id="Tasa" type="text" />
+        Tasa de interés <input id="Tasa" type="number" />
     </div>
 
     <div>
-        Duracion del prestamo (en meses) <input id="duracion" type="text" />
+        Duración del préstamo (en meses) <input id="duracion" type="number" />
     </div>
-    <div>
-        Fecha de comienzo del prestamo <input id="date" type="text" />
-    </div>
+
 </fieldset>
+
+<div>
+     <label>Pago Mensual</label>
+     <label id="pagoMensual"></label>
+</div>
+
+<div>
+    <label>Capital + Interés Anual</label>
+    <label id="capitalInteresAnual"></label>
+</div>
+
+<div>
+    <label>Costos de Financiamiento</label>
+    <label id="costoFinanciamiento"></label>
+</div>
+
+<div>
+    <label>Costo Total</label>
+    <label id="costoTotal"></label>
+</div>
+
+<div>
+    <button type="button" id="btnCalcular">Calcular</button>
+</div>
+
+@section scripts {
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#btnCalcular").click(function () {
+                var monto = $("#Monto").val();
+                var tasa = $("#Tasa").val();
+                var plazo = $("#duracion").val();
+
+                $.post("/Calculadora/CalcularPrestamo", { Monto: monto, Tasa: tasa, Plazo: plazo },
+                    function (data) {
+                        $("#pagoMensual").text(data.cuota_fija);
+                        $("#capitalInteresAnual").text(data.interes);
+                        $("#costoFinanciamiento").text(data.costo_financiamiento);
+                        $("#costoTotal").text(data.costo_total);
+                    }
+                ).fail(function (jqXMLHttpRequest, textStatus, errorThrown) {
+                    console.log(errorThrown);
+                });
+            });
+        });
+    </script>
 }
-<div><textarea id="Resultado" rows="2" cols="20"></textarea></div>

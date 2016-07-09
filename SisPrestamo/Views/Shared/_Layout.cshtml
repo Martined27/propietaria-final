@@ -12,7 +12,12 @@
         <header>
             <div class="content-wrapper">
                 <div class="float-left">
-                    <p class="site-title">@Html.ActionLink("your logo here", "Index", "Home")</p>
+                    <p class="site-title">
+                        <a href="@Url.Action("Index", "Home")">
+                            <img src="~/Images/LogoMakr.png" width="260" height="105" alt="Presta+" />
+                        </a>
+                    </p>
+
                 </div>
                 <div class="float-right">
                     <section id="login">
@@ -20,9 +25,12 @@
                     </section>
                     <nav>
                         <ul id="menu">
-                            <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                            <li>@Html.ActionLink("About", "About", "Home")</li>
-                            <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                            <li>@Html.ActionLink("Inicio", "Index", "Home")</li>
+                            <li>@Html.ActionLink("Prestamos", "Index", "Prestamo")</li>
+                            <li>@Html.ActionLink("Calculadora", "Index", "Calculadora")</li>
+                            <li>@Html.ActionLink("Contacto", "Contact", "Home")</li>
+                            <li>@Html.ActionLink("Sobre Nosotros", "About", "Home")</li>
+
                         </ul>
                     </nav>
                 </div>
