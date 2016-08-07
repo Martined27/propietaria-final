@@ -1,18 +1,18 @@
 ﻿@model IEnumerable<SisPrestamo.Prestamo>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Préstamos";
 }
 
-<h2>Index</h2>
+<h2>Préstamos</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Agregar nuevo", "Create")
 </p>
 <table>
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Cliente.Nombre)
+            Cliente
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Importe)
@@ -24,7 +24,7 @@
             @Html.DisplayNameFor(model => model.Plazo)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.tipo_prestamo1.tipo)
+            Tipo Préstamo
         </th>
         <th></th>
     </tr>
@@ -44,12 +44,12 @@
             @Html.DisplayFor(modelItem => item.Plazo)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.tipo_prestamo1.tipo)
+            @Html.DisplayFor(modelItem => item.tipo_prestamo.tipo)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+            @Html.ActionLink("Editar", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Ver Detalle", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Eliminar", "Delete", new { id=item.Id })
         </td>
     </tr>
 }

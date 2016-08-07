@@ -4,24 +4,24 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="prestamodbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl" Alias="Self" Namespace="prestamodbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008">
         <EntityType Name="Clientes">
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Nombre" Type="varchar" MaxLength="50" />
-          <Property Name="Apellido" Type="varchar" MaxLength="50" />
-          <Property Name="Cedula" Type="nchar" MaxLength="10" />
+          <Property Name="id" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+          <Property Name="Nombre" MaxLength="50" Type="varchar" />
+          <Property Name="Apellido" MaxLength="50" Type="varchar" />
+          <Property Name="Cedula" MaxLength="10" Type="nchar" />
         </EntityType>
         <EntityType Name="Prestamos">
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="id_cliente" Type="int" Nullable="false" />
+          <Property Name="id" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+          <Property Name="id_cliente" Nullable="false" Type="int" />
           <Property Name="Importe" Type="int" />
-          <Property Name="Tasa" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Tasa" Precision="18" Scale="0" Type="decimal" />
           <Property Name="Plazo" Type="smalldatetime" />
           <Property Name="tipo_prestamo" Type="int" />
         </EntityType>
@@ -29,12 +29,12 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="tipo" Type="nchar" MaxLength="10" />
+          <Property Name="id" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+          <Property Name="tipo" MaxLength="10" Type="nchar" />
         </EntityType>
         <Association Name="FK_Prestamos_Clientes">
-          <End Role="Clientes" Type="Self.Clientes" Multiplicity="1" />
-          <End Role="Prestamos" Type="Self.Prestamos" Multiplicity="*" />
+          <End Type="Self.Clientes" Multiplicity="1" Role="Clientes" />
+          <End Type="Self.Prestamos" Multiplicity="*" Role="Prestamos" />
           <ReferentialConstraint>
             <Principal Role="Clientes">
               <PropertyRef Name="id" />
@@ -45,8 +45,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Prestamos_tipo_prestamo">
-          <End Role="tipo_prestamo" Type="Self.tipo_prestamo" Multiplicity="0..1" />
-          <End Role="Prestamos" Type="Self.Prestamos" Multiplicity="*" />
+          <End Type="Self.tipo_prestamo" Multiplicity="0..1" Role="tipo_prestamo" />
+          <End Type="Self.Prestamos" Multiplicity="*" Role="Prestamos" />
           <ReferentialConstraint>
             <Principal Role="tipo_prestamo">
               <PropertyRef Name="id" />
@@ -61,12 +61,12 @@
           <EntitySet Name="Prestamos" EntityType="Self.Prestamos" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tipo_prestamo" EntityType="Self.tipo_prestamo" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_Prestamos_Clientes" Association="Self.FK_Prestamos_Clientes">
-            <End Role="Clientes" EntitySet="Clientes" />
-            <End Role="Prestamos" EntitySet="Prestamos" />
+            <End EntitySet="Clientes" Role="Clientes" />
+            <End EntitySet="Prestamos" Role="Prestamos" />
           </AssociationSet>
           <AssociationSet Name="FK_Prestamos_tipo_prestamo" Association="Self.FK_Prestamos_tipo_prestamo">
-            <End Role="tipo_prestamo" EntitySet="tipo_prestamo" />
-            <End Role="Prestamos" EntitySet="Prestamos" />
+            <End EntitySet="tipo_prestamo" Role="tipo_prestamo" />
+            <End EntitySet="Prestamos" Role="Prestamos" />
           </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -146,7 +146,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="prestamodbModelStoreContainer" CdmEntityContainer="prestamodbEntities">
+        <EntityContainerMapping CdmEntityContainer="prestamodbEntities" StorageEntityContainer="prestamodbModelStoreContainer">
           <EntitySetMapping Name="Clientes">
             <EntityTypeMapping TypeName="prestamodbModel.Cliente">
               <MappingFragment StoreEntitySet="Clientes">

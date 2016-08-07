@@ -22,7 +22,9 @@ namespace SisPrestamo
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            throw new UnintentionalCodeFirstException();
+            modelBuilder.Entity<Prestamo>().ToTable("Prestamos");
+            modelBuilder.Entity<Cliente>().ToTable("Clientes");
+            modelBuilder.Entity<tipo_prestamo>().ToTable("tipo_prestamo");
         }
     
         public DbSet<Cliente> Clientes { get; set; }

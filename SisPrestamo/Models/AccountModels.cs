@@ -8,14 +8,17 @@ using System.Web.Security;
 
 namespace SisPrestamo.Models
 {
-    public class UsersContext : DbContext
+    public class SisPrestamoContext : DbContext
     {
-        public UsersContext()
+        public SisPrestamoContext()
             : base("DefaultConnection")
         {
         }
 
         public DbSet<UserProfile> UserProfiles { get; set; }
+        public DbSet<Cliente> Clientes { get; set; }
+        public DbSet<Prestamo> Prestamos { get; set; }
+        public DbSet<tipo_prestamo> tipo_prestamo { get; set; }
     }
 
     [Table("UserProfile")]

@@ -25,11 +25,11 @@ namespace SisPrestamo.Filters
         {
             public SimpleMembershipInitializer()
             {
-                Database.SetInitializer<UsersContext>(null);
+                Database.SetInitializer<SisPrestamoContext>(null);
 
                 try
                 {
-                    using (var context = new UsersContext())
+                    using (var context = new SisPrestamoContext())
                     {
                         if (!context.Database.Exists())
                         {

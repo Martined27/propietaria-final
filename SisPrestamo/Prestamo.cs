@@ -11,17 +11,19 @@ namespace SisPrestamo
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations.Schema;
+
+    [Table("Prestamos")]
     public partial class Prestamo
     {
-        public int id { get; set; }
-        public int id_cliente { get; set; }
-        public Nullable<int> Importe { get; set; }
-        public Nullable<int> Tasa { get; set; }
-        public Nullable<System.DateTime> Plazo { get; set; }
-        public Nullable<int> tipo_prestamo { get; set; }
+        public int Id { get; set; }
+        public int ClienteId { get; set; }
+        public int Importe { get; set; }
+        public int Tasa { get; set; }
+        public DateTime Plazo { get; set; }
+        public int tipo_prestamoId { get; set; }
     
         public virtual Cliente Cliente { get; set; }
-        public virtual tipo_prestamo tipo_prestamo1 { get; set; }
+        public virtual tipo_prestamo tipo_prestamo { get; set; }
     }
 }

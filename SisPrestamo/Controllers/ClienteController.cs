@@ -5,12 +5,13 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using SisPrestamo.Models;
 
 namespace SisPrestamo.Controllers
 {
     public class ClienteController : Controller
     {
-        private prestamodbEntities db = new prestamodbEntities();
+        private SisPrestamoContext db = new SisPrestamoContext();
 
         //
         // GET: /Cliente/

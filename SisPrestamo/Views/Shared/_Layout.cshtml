@@ -2,11 +2,12 @@
 <html lang="en">
     <head>
         <meta charset="utf-8" />
-        <title>@ViewBag.Title - My ASP.NET MVC Application</title>
+        <title>@ViewBag.Title - -SisPréstamos</title>
         <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
         <meta name="viewport" content="width=device-width" />
         @Styles.Render("~/Content/css")
         @Scripts.Render("~/bundles/modernizr")
+        @Scripts.Render("~/bundles/jquery")
     </head>
     <body>
         <header>
@@ -26,11 +27,11 @@
                     <nav>
                         <ul id="menu">
                             <li>@Html.ActionLink("Inicio", "Index", "Home")</li>
-                            <li>@Html.ActionLink("Prestamos", "Index", "Prestamo")</li>
+                            <li>@Html.ActionLink("Préstamos", "Index", "Prestamo")</li>
                             <li>@Html.ActionLink("Calculadora", "Index", "Calculadora")</li>
+                            <li>@Html.ActionLink("Clientes", "Index", "Cliente")</li>
+                            <li>@Html.ActionLink("Tipos Préstamo", "Index", "Tipo_Prestamo")</li>
                             <li>@Html.ActionLink("Contacto", "Contact", "Home")</li>
-                            <li>@Html.ActionLink("Sobre Nosotros", "About", "Home")</li>
-
                         </ul>
                     </nav>
                 </div>
@@ -45,12 +46,11 @@
         <footer>
             <div class="content-wrapper">
                 <div class="float-left">
-                    <p>&copy; @DateTime.Now.Year - My ASP.NET MVC Application</p>
+                    <p>&copy; @DateTime.Now.Year - SisPréstamos</p>
                 </div>
             </div>
         </footer>
 
-        @Scripts.Render("~/bundles/jquery")
         @RenderSection("scripts", required: false)
     </body>
 </html>

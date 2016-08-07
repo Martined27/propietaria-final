@@ -1,10 +1,10 @@
 ﻿@model SisPrestamo.Prestamo
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Crear";
 }
 
-<h2>Create</h2>
+<h2>Crear</h2>
 
 @using (Html.BeginForm()) {
     @Html.AntiForgeryToken()
@@ -14,11 +14,11 @@
         <legend>Prestamo</legend>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.id_cliente, "Cliente")
+            @Html.LabelFor(model => model.ClienteId, "Cliente")
         </div>
         <div class="editor-field">
             @Html.DropDownList("id_cliente", String.Empty)
-            @Html.ValidationMessageFor(model => model.id_cliente)
+            @Html.ValidationMessageFor(model => model.ClienteId)
         </div>
 
         <div class="editor-label">
@@ -46,7 +46,7 @@
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.tipo_prestamo, "tipo_prestamo1")
+            @Html.LabelFor(model => model.tipo_prestamo, "tipo_prestamo")
         </div>
         <div class="editor-field">
             @Html.DropDownList("tipo_prestamo", String.Empty)
@@ -54,13 +54,13 @@
         </div>
 
         <p>
-            <input type="submit" value="Create" />
+            <input type="submit" value="Crear" />
         </p>
     </fieldset>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Volver a la lista", "Index")
 </div>
 
 @section Scripts {

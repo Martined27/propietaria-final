@@ -5,19 +5,20 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using SisPrestamo.Models;
 
 namespace SisPrestamo.Controllers
 {
     public class PrestamoController : Controller
     {
-        private prestamodbEntities db = new prestamodbEntities();
+        private SisPrestamoContext db = new SisPrestamoContext();
 
         //
         // GET: /Prestamo/
 
         public ActionResult Index()
         {
-            var prestamos = db.Prestamos.Include(p => p.Cliente).Include(p => p.tipo_prestamo1);
+            var prestamos = db.Prestamos.Include(p => p.Cliente).Include(p => p.tipo_prestamo);
             return View(prestamos.ToList());
         }
 
@@ -58,7 +59,7 @@ namespace SisPrestamo.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.id_cliente = new SelectList(db.Clientes, "id", "Nombre", prestamo.id_cliente);
+            ViewBag.id_cliente = new SelectList(db.Clientes, "id", "Nombre", prestamo.ClienteId);
             ViewBag.tipo_prestamo = new SelectList(db.tipo_prestamo, "id", "tipo", prestamo.tipo_prestamo);
             return View(prestamo);
         }
@@ -73,7 +74,7 @@ namespace SisPrestamo.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.id_cliente = new SelectList(db.Clientes, "id", "Nombre", prestamo.id_cliente);
+            ViewBag.id_cliente = new SelectList(db.Clientes, "id", "Nombre", prestamo.ClienteId);
             ViewBag.tipo_prestamo = new SelectList(db.tipo_prestamo, "id", "tipo", prestamo.tipo_prestamo);
             return View(prestamo);
         }
@@ -91,7 +92,7 @@ namespace SisPrestamo.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.id_cliente = new SelectList(db.Clientes, "id", "Nombre", prestamo.id_cliente);
+            ViewBag.id_cliente = new SelectList(db.Clientes, "id", "Nombre", prestamo.ClienteId);
             ViewBag.tipo_prestamo = new SelectList(db.tipo_prestamo, "id", "tipo", prestamo.tipo_prestamo);
             return View(prestamo);
         }
