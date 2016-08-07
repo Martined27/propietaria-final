@@ -7,3 +7,27 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+
+namespace SisPrestamo
+{
+    using System;
+    using System.Data.Entity;
+    using System.Data.Entity.Infrastructure;
+    
+    public partial class prestamodbEntities : DbContext
+    {
+        public prestamodbEntities()
+            : base("name=prestamodbEntities")
+        {
+        }
+    
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            throw new UnintentionalCodeFirstException();
+        }
+    
+        public DbSet<Cliente> Clientes { get; set; }
+        public DbSet<Prestamo> Prestamos { get; set; }
+        public DbSet<tipo_prestamo> tipo_prestamo { get; set; }
+    }
+}
